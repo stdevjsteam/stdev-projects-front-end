@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Site name</th>
+      <th>Technologies</th>
+      <th>Developers</th>
+      <th *ngIf="forAdmin">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let site of sites">
+      <td>{{ site.name }}</td>
+      <td>{{ site.technology }}</td>
+      <td>{{ site.developers }}</td>
+      <td *ngIf="forAdmin">
+        <button (click)="onRemove(site.id)">delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
