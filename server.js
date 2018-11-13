@@ -7,7 +7,7 @@ app.use(express.static('./dist/stdev-projects-front-end'));
 
 app.get('/*', function(req,res) {
     
-res.sendFile(path.join(__dirname,'/dist/stdev-projects-front-end/index.html'));
+res.sendFile(path.join(__dirname,'./dist/stdev-projects-front-end/index.html'));
 });
 
 app.listen(process.env.PORT || 8080);
