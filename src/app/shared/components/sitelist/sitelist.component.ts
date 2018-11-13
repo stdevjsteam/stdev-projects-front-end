@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 
-import { IResult } from 'src/app/models/result';
+import { ResultModel } from 'src/app/models/result';
 import { SiteModel } from 'src/app/models/site.model';
 import { SitelistService } from '../../services/sitelist.service';
 
@@ -20,7 +20,7 @@ export class SitelistComponent implements OnInit {
 
   ngOnInit() {
     this.siteListService.getSites().subscribe(
-      (result: IResult) => {
+      (result: ResultModel) => {
         this.sites = result.data;
       }
     );
@@ -28,7 +28,7 @@ export class SitelistComponent implements OnInit {
 
   onRemove(id: number): void {
     this.siteListService.removeSite(id).subscribe(
-      (result: IResult) => {
+      (result: ResultModel) => {
         console.log(result);
       }
     );
