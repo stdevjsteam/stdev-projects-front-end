@@ -9,7 +9,7 @@ import { ResultModel } from 'src/app/models/result';
 export abstract class BaseRestService {
   constructor(protected http: HttpClient) {}
 
-  protected create(endpoint: string, item): Observable<ResultModel> {
+  protected create<Type>(endpoint: string, item: Type): Observable<ResultModel> {
     return this.http.post<ResultModel>(`${environment.api}${endpoint}`, item);
   }
 
@@ -19,11 +19,15 @@ export abstract class BaseRestService {
     );
   }
 
+  protected remove(endpoint: string, id: number): Observable<ResultModel> {
+    return this.http.delete<ResultModel>(`${environment.api}${endpoint}/${id}`);
+  }
+
   protected editPatch<Type>(endpoint: string, id: number, data: Type): Observable<ResultModel> {
-    return this.http.patch<ResultModel>(`${environment.api}${endpoint}/${id}/`, data);
+    return this.http.patch<ResultModel>(`${environment.api}${endpoint}/${id}`, data);
   }
 
   protected editPut<Type>(endpoint: string, id: number, data: Type): Observable<ResultModel> {
-    return this.http.put<ResultModel>(`${environment.api}${endpoint}/${id}/`, data);
+    return this.http.put<ResultModel>(`${environment.api}${endpoint}/${id}`, data);
   }
 }

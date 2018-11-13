@@ -30,6 +30,9 @@ export class SitelistComponent implements OnInit {
     this.siteListService.removeSite(id).subscribe(
       (result: ResultModel) => {
         console.log(result);
+        if (result.status) {
+          document.getElementById(id.toString()).remove();
+        }
       }
     );
   }

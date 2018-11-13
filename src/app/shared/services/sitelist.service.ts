@@ -17,6 +17,6 @@ export class SitelistService extends BaseRestService {
   }
 
   public removeSite(id: number) {
-    return this.http.delete(`https://stdev-projects.herokuapp.com/api/projects/${id}`);
+    return this.remove('projects', id);
   }
 }
