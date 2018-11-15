@@ -3,21 +3,27 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { PublicModule } from './modules/public/public.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
-import { ExamplesComponent } from './modules/examples/examples.component';
+
+import { tokenGetter } from './shared/helpers/helpers';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ExamplesComponent
+    AppComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    PublicModule
+    AuthModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

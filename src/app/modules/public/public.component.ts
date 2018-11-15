@@ -13,6 +13,7 @@ import { PublicProjectstService } from './services/public-projects.service';
 export class PublicComponent implements OnInit {
 
   public projects: IProject[];
+  public mode = 'public';
 
   constructor(
     private publicProjectsService: PublicProjectstService

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ProjectsTableComponent } from './components/projects-table/projects-table.component';
 
@@ -11,7 +12,9 @@ import { ProjectsTableComponent } from './components/projects-table/projects-tab
     ProjectsTableComponent
   ],
   exports: [
-    ProjectsTableComponent
+    ProjectsTableComponent,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

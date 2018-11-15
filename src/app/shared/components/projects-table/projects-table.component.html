@@ -15,7 +15,8 @@
       <td *ngSwitchCase="'public'">{{ project.developers }}</td>
       <td *ngSwitchCase="'examples'">{{ project.repository }}</td>
       <td *ngIf="isAdmin">
-        <button (click)="onRemove(project.id)">delete</button>
+        <button (click)="onEdit(project.id)">Edit</button>
+        <button (click)="onRemove(project.id)">Delete</button>
       </td>
     </tr>
   </tbody>

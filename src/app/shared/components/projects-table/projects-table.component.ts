@@ -17,4 +17,12 @@ export class ProjectsTableComponent implements OnInit {
   ngOnInit() {
   }
 
+  onEdit(id: number): void {
+
+  }
+
+  onRemove(id: number): void {
+
+  }
+
 }

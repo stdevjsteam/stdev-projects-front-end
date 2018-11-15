@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'public', pathMatch: 'full'},
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: 'public', loadChildren: './modules/public/public.module#PublicModule'},
   { path: 'examples', loadChildren: './modules/examples/examples.module#ExamplesModule'}
 ];
 

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://stdev-projects-api.herokuapp.com/api/'
+  api: 'http://localhost:3000/api/'
 };
 
 /*
