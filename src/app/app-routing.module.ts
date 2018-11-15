@@ -3,7 +3,7 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'public', pathMatch: 'full'},
-  { path: 'admin', loadChildren: './modules/admin/admin.module#AdminModule'}
+  { path: 'examples', loadChildren: './modules/examples/examples.module#ExamplesModule'}
 ];
 
 @NgModule({

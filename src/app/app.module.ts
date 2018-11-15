@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { PublicModule } from './modules/public/public.module';
 
 import { AppComponent } from './app.component';
+import { ExamplesComponent } from './modules/examples/examples.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ExamplesComponent
   ],
   imports: [
     HttpClientModule,

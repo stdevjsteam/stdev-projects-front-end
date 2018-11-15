@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr [ngSwitch]="mode">
+      <th>Project name</th>
+      <th>Technologies</th>
+      <th *ngSwitchCase="'public'">Developers</th>
+      <th *ngSwitchCase="'examples'">Repository</th>
+      <th *ngIf="isAdmin">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects" [id]=project.id [ngSwitch]="mode">
+      <td>{{ project.name }}</td>
+      <td>{{ project.technology }}</td>
+      <td *ngSwitchCase="'public'">{{ project.developers }}</td>
+      <td *ngSwitchCase="'examples'">{{ project.repository }}</td>
+      <td *ngIf="isAdmin">
+        <button (click)="onRemove(project.id)">delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
