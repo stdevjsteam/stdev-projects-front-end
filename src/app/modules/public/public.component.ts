@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { IProject } from 'src/app/models/projects.model';
+import { ResultModel } from 'src/app/models/result';
+import { PublicProjectstService } from './services/public-projects.service';
+
+
 @Component({
   selector: 'app-public',
   templateUrl: './public.component.html',
@@ -7,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicComponent implements OnInit {
 
-  constructor() { }
+  public projects: IProject[];
+
+  constructor(
+    private publicProjectsService: PublicProjectstService
+  ) { }
 
   ngOnInit() {
+    this.publicProjectsService.getSites().subscribe(
+      (result: ResultModel<IProject>) => {
+        this.projects = result.data;
+      }
+    );
   }
 
 }

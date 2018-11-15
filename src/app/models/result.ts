@@ -1,5 +1,5 @@
-export interface ResultModel {
+export interface ResultModel<T> {
     status: boolean;
     message: string;
-    data: any;
+    data: T[];
 }
