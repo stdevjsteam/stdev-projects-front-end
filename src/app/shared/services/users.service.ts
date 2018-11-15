@@ -16,8 +16,4 @@ export class UsersService extends BaseRestService<UserModel> {
   ) {
     super(http);
   }
-
-  public loginUser(user: UserModel): Observable<ResultModel<UserModel>> {
-    return this.create('login', user);
-  }
 }

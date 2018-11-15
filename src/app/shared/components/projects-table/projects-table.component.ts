@@ -15,6 +15,7 @@ export class ProjectsTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.isAdmin);
   }
 
   onEdit(id: number): void {
