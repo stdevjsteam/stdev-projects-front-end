@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProjectModel } from 'src/app/models/projects.model';
 
 @Component({
@@ -11,11 +11,16 @@ export class ProjectsTableComponent implements OnInit {
   @Input() mode: string;
   @Input() isAdmin = false;
   @Input() projects: ProjectModel;
+  @Output() searchChange = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.isAdmin);
+
+  }
+
+  onSearch($event): void {
+    this.searchChange.emit($event);
   }
 
   onEdit(id: number): void {

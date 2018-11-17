@@ -1,3 +1,12 @@
+<div *ngIf="isAdmin" class="table-nav">
+
+  <div class="text-field search">
+    <input (input)="onSearch($event)" type="search" placeholder="Search by technology">
+  </div>
+
+  <button>Add</button>
+</div>
+
 <table>
   <thead>
     <tr [ngSwitch]="mode">

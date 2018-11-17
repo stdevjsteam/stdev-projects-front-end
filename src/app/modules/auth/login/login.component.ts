@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           this.authService.user = new UserModel(data.email, data.password, data.isAdmin);
           this.authService.setToken(data.token);
           this.authService.authenticatedSubject.next(true);
-          this.router.navigate(['/public']);
+          this.router.navigate(['/dashboard/public']);
         },
         (err: HttpErrorResponse) => {
           if (err.status === 400) {

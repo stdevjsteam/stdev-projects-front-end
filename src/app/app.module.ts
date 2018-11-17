@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './modules/auth/auth.module';
@@ -9,6 +9,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 
 import { tokenGetter } from './shared/helpers/helpers';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,13 @@ import { tokenGetter } from './shared/helpers/helpers';
       }
     })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

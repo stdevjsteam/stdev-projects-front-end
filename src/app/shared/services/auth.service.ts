@@ -40,9 +40,11 @@ export class AuthService extends BaseRestService<UserModel> {
     }
   }
 
-  public get isAuthenticated(): boolean {
-    const token = this.getToken();
-    return token ? !this.tokenNotExpired(token) : false;
+  public get isAuthenticated(): Promise<boolean> {
+    return new Promise((res, rej) => {
+      const token = this.getToken();
+      res(token ? !this.tokenNotExpired(token) : false);
+    });
   }
 
   public login(user: UserModel): Observable<ResultModel<UserModel>> {
