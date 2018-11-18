@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
@@ -10,6 +10,11 @@ export abstract class BaseRestService<T> {
 
   protected create<Type>(endpoint: string, item: Type): Observable<ResultModel<T>> {
     return this.http.post<ResultModel<T>>(`${environment.api}${endpoint}`, item);
+  }
+
+  protected getByParams(endpoint: string, params: {[param: string]: string} = null): Observable<ResultModel<T>> {
+    const queryParams = new HttpParams({ fromObject: params });
+    return this.http.get<ResultModel<T>>(`${environment.api}${endpoint}`, { params: queryParams });
   }
 
   protected getAll(endpoint: string): Observable<ResultModel<T>> {

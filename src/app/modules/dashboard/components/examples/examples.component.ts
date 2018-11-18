@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class ExamplesComponent extends IsAdmin implements OnInit, OnDestroy {
 
   public projects: IProject[];
-  public mode = 'examples';
+  public mode = 'example';
   private projectsSubscribtion$: Subscription;
 
   constructor(

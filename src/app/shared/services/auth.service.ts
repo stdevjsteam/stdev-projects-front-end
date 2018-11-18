@@ -34,6 +34,12 @@ export class AuthService extends BaseRestService<UserModel> {
     return this.jwtHelper.isTokenExpired(token);
   }
 
+  public decodeToken() {
+    if (this.isAuthenticated) {
+      return this.jwtHelper.decodeToken(this.getToken());
+    }
+  }
+
   public getUserId(): UserModel {
     if (this.isAuthenticated) {
       return this.jwtHelper.decodeToken(this.getToken());

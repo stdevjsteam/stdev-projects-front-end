@@ -13,7 +13,7 @@
       <th>Project name</th>
       <th>Technologies</th>
       <th *ngSwitchCase="'public'">Developers</th>
-      <th *ngSwitchCase="'examples'">Repository</th>
+      <th *ngSwitchCase="'example'">Repository</th>
       <th *ngIf="isAdmin">Actions</th>
     </tr>
   </thead>
@@ -22,7 +22,7 @@
       <td>{{ project.name }}</td>
       <td>{{ project.technology }}</td>
       <td *ngSwitchCase="'public'">{{ project.developers }}</td>
-      <td *ngSwitchCase="'examples'">{{ project.repository }}</td>
+      <td *ngSwitchCase="'example'">{{ project.repository }}</td>
       <td *ngIf="isAdmin">
         <button (click)="onEdit(project.id)">Edit</button>
         <button (click)="onRemove(project.id)">Delete</button>

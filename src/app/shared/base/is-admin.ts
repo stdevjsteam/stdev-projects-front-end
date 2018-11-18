@@ -4,6 +4,6 @@ export abstract class IsAdmin {
     protected isAdmin = false;
 
     constructor(protected authService: AuthService) {
-        this.isAdmin = true;
+        this.isAdmin = this.authService.decodeToken().isAdmin;
     }
 }

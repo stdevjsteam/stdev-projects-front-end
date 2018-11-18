@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { BaseRestService } from 'src/app/shared/services/base-rest.service';
 import { IProject } from 'src/app/models/projects.model';
@@ -17,6 +17,10 @@ export class ProjectsService extends BaseRestService<IProject> {
 
   public getAllProjects(endpoint: string): Observable<ResultModel<IProject>> {
     return this.getAll(endpoint);
+  }
+
+  public getProjectsByParam(endpoint: string, params: {[param: string]: string}): Observable<ResultModel<IProject>> {
+    return this.getByParams(endpoint, params);
   }
 
   public removeProject(endpoint: string, id: number): Observable<ResultModel<IProject>> {
